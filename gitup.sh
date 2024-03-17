@@ -5,6 +5,7 @@ set -eou pipefail
 ### Script to update my git repos
 
 directories=(
+  "$HOME/.scripts"
   "$HOME/docs" 
   "$HOME/notes" 
   "$HOME/.config/nvim"
