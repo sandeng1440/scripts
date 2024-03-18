@@ -13,7 +13,7 @@ directories=(
 
 clear
 echo "Starting Gitup..."
-echo "---------------------------------"
+echo "----------------------------------------------------------"
 for dir in ${directories[@]}; do
   echo "Gitting $(basename $dir)..."
   cd $dir || exit
@@ -26,7 +26,7 @@ for dir in ${directories[@]}; do
     echo "Nothing to commit in $(basename $dir)"
   fi
   cd - >/dev/null || exit
-  echo "---------------------------------"
+  echo "----------------------------------------------------------"
 done
 echo "Gitup done"
 
