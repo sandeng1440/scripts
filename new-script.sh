@@ -5,7 +5,9 @@ set -eou pipefail
 scrDir="$HOME/.scripts"
 binDir="$HOME/.local/bin"
 
-mkdir -p $binDir
+if [ ! -d $binDir ]; then
+  mkdir -p $binDir
+fi
 
 echo "Symlinking scripts..."
 for i in $scrDir/*; do
