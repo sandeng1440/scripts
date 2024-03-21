@@ -6,8 +6,9 @@ set -eou pipefail
 
 directories=(
   "$HOME/.scripts"
-  "$HOME/docs" 
-  "$HOME/notes" 
+  "$HOME/Docs" 
+  "$HOME/Notes" 
+  "$HOME/PLP"
   "$HOME/.config/nvim"
 )
 
