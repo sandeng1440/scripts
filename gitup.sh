@@ -12,7 +12,6 @@ directories=(
   "$HOME/.config/nvim"
 )
 
-clear
 echo "Starting Gitup..."
 echo "--------------------------------------------------------------------------------"
 for dir in ${directories[@]}; do
