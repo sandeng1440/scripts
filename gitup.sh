@@ -9,7 +9,7 @@ directories=(
   "$HOME/Docs" 
   "$HOME/Notes" 
   "$HOME/PLP"
-  # "$HOME/.config/nvim"
+  "$HOME/.config/nvim"
 )
 
 echo "Starting Gitup..."
