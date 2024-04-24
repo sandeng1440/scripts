@@ -23,9 +23,9 @@ for dir in ${directories[@]}; do
     git commit -m "Auto commit"
     echo "Push successful"
   else
-    git push origin main
     echo "Nothing to commit in $(basename $dir)"
   fi
+  git push origin main
   cd - >/dev/null || exit
   echo "--------------------------------------------------------------------------------"
 done
