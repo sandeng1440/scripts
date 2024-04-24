@@ -24,6 +24,7 @@ for dir in ${directories[@]}; do
     git push origin main
     echo "Push successful"
   else
+    git push
     echo "Nothing to commit in $(basename $dir)"
   fi
   cd - >/dev/null || exit
