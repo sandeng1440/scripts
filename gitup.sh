@@ -21,10 +21,9 @@ for dir in ${directories[@]}; do
   if [[ $(git status --porcelain) ]]; then
     git add .
     git commit -m "Auto commit"
-    git push origin main
     echo "Push successful"
   else
-    git push
+    git push origin main
     echo "Nothing to commit in $(basename $dir)"
   fi
   cd - >/dev/null || exit
