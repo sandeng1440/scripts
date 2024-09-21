@@ -26,7 +26,8 @@ for dir in ${directories[@]}; do
   else
     echo "Nothing to commit in $(basename $dir)"
   fi
-  git push origin main
+  # git push origin main
+  git push
   cd - >/dev/null || exit
   echo "--------------------------------------------------------------------------------"
 done
