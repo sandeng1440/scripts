@@ -26,7 +26,7 @@ for dir in ${directories[@]}; do
     echo "Nothing to commit in $(basename $dir)"
   fi
 
-  if ![[$(git push)]]; then
+  if ! [[ $(git push) ]]; then
     git push origin main
   fi
   echo "Push successful"
