@@ -11,14 +11,16 @@ fi
 
 echo "Symlinking scripts..."
 for i in $scrDir/*; do
-  chmod u+x $i
+  if [[ $i == *.sh ]]; then
+    chmod u+x $i
 
-  filename=$(basename "$i" .sh)
-  
-  if [[ -f $binDir/$filename ]]; then
-    continue
+    filename=$(basename "$i" .sh)
+    
+    if [[ -f $binDir/$filename ]]; then
+      continue
+    fi
+    (ln -s $i $binDir/$filename)
+    echo "Symlinking $filename"
   fi
-  (ln -s $i $binDir/$filename)
-  echo "Symlinking $filename"
 done
 echo "Done"
