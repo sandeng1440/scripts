@@ -22,13 +22,11 @@ for dir in ${directories[@]}; do
   if [[ $(git status --porcelain) ]]; then
     git add .
     git commit -m "Gitup commit"
+    git pull --rebase
   else
     echo "Nothing to commit in $(basename $dir)"
   fi
-
-  if ! [[ $(git push) ]]; then
-    git push origin main
-  fi
+  git push
   echo "Push successful"
   cd - >/dev/null || exit
   echo "--------------------------------------------------------------------------------"
