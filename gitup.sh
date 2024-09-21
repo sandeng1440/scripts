@@ -10,6 +10,7 @@ directories=(
   "$HOME/Notes" 
   "$HOME/PLP"
   "$HOME/.config/nvim"
+  "$HOME/.config/kickstart"
   "$HOME/Devel"
 )
 
