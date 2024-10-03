@@ -10,6 +10,7 @@ with import <nixpkgs> {}; [
 
 	# development
 	android-studio
+	gradle
 
 	# games
 	#mindustry-wayland
