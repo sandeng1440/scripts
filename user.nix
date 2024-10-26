@@ -14,7 +14,6 @@ with import <nixpkgs> {}; [
 
 	# office
 	#libreoffice-fresh
-	llpp
 	
 	# accounting
 	gnucash
