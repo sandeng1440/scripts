@@ -14,6 +14,10 @@ with import <nixpkgs> {}; [
 
 	# office
 	#libreoffice-fresh
+	#zoom
+	#discord
+	whatsapp-for-linux
+	telegram-desktop
 	
 	# accounting
 	gnucash
@@ -21,4 +25,7 @@ with import <nixpkgs> {}; [
 	# development
 	android-studio
 	gradle # Dependency for android-studio
+
+	# others
+	freetube
 ]
