@@ -10,7 +10,7 @@ with import <nixpkgs> {}; [
 	bettercap 
 	openvpn openvpn3 
 	#networkmanager-openvpn
-	wireshark
+	# wireshark
 
 	# office
 	#libreoffice-fresh
