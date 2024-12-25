@@ -23,6 +23,7 @@ with import <nixpkgs> {}; [
 	gnucash
 
 	# development
+	go
 	android-studio
 	gradle # Dependency for android-studio
 
