@@ -6,6 +6,6 @@ query() {
   nix-env -q "$@" --json | jq -r '.[] | .pname + " " + .version'
 }
 
-janet "$HOME/.scripts/version-diff.janet" \
+janet "$HOME/repo/scripts/version-diff.janet" \
   <(query) \
-  <(query -af ~/.scripts/user.nix)
+  <(query -af ~/repo/scripts/packages.nix)

@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 set -eou pipefail
 
-scrDir="$HOME/.scripts"
+scrDir="$HOME/repo/scripts"
 binDir="$HOME/.local/bin"
 
 if [ ! -d $binDir ]; then

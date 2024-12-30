@@ -31,4 +31,4 @@ if [[ -z "$sheet" ]]; then
 fi
 
 # curl -s cht.sh/$topic/$sheet?style=rrt  | less -R
-curl -s cht.sh/$topic/$sheet?style=rrt  | bat
+curl -s cht.sh/$topic/$sheet?style=rrt | bat

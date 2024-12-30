@@ -5,14 +5,13 @@ set -eou pipefail
 ### Script to update my git repos
 
 directories=(
-  "$HOME/.scripts"
-  "$HOME/Docs" 
-  "$HOME/Notes" 
-  "$HOME/PLP"
+  "$HOME/repo/scripts"
+  "$HOME/repo/docs" 
+  "$HOME/repo/notes" 
+  "$HOME/repo/devel"
+  "$HOME/repo/aoc"
   "$HOME/.config/nvim"
   "$HOME/.config/kickstart"
-  "$HOME/Devel"
-  "$HOME/AOC"
 )
 
 echo "Starting Gitup..."

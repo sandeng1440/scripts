@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-nix-env -irf ~/.scripts/user.nix
+nix-env -irf ~/repo/scripts/packages.nix
