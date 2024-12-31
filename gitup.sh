@@ -11,7 +11,7 @@ directories=(
   "$HOME/repo/devel"
   "$HOME/repo/aoc"
   "$HOME/.config/nvim"
-  "$HOME/.config/kickstart"
+  # "$HOME/.config/kickstart"
 )
 
 echo "Starting Gitup..."
