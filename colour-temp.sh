@@ -1,49 +1,51 @@
 #!/usr/bin/env bash
 
-# Script to adjust the temperature of gammastep
+# File to store the current color temperature
+TEMP_FILE="$HOME/.config/hypr/color_temp"
 
-# Check if an argument is provided
-if [ -z "$1" ]; then
-  echo "Usage: $0 [warmer|cooler]"
-  exit 1
+# Default color temperature if file doesn't exist
+DEFAULT_TEMP=6500
+MIN_TEMP=1000
+MAX_TEMP=10000
+STEP=500 # Increment/decrement step size
+
+# Read current temperature or use default
+if [[ -f "$TEMP_FILE" ]]; then
+  CURRENT_TEMP=$(cat "$TEMP_FILE")
+else
+  CURRENT_TEMP=$DEFAULT_TEMP
 fi
 
-# Get the current temperature
-current_temp=$(gammastep -p | grep "Color temperature" | awk '{print $4}' | sed 's/K//')
+# Function to update wlsunset with new temperature
+update_wlsunset() {
+  # Kill any existing wlsunset process
+  pkill wlsunset
+  # Start wlsunset with the new temperature
+  wlsunset -T "$1" &
+  # Save the new temperature
+  echo "$1" >"$TEMP_FILE"
+}
 
-# Check if the current temperature is a valid number
-if ! [[ "$current_temp" =~ ^[0-9]+$ ]]; then
-  echo "Error: Could not determine current temperature."
-  exit 1
-fi
-
-# Set the temperature adjustment step
-step=500
-
-# Adjust the temperature based on the argument
+# Check argument
 case "$1" in
-  "warmer")
-    new_temp=$((current_temp - step))
-    ;;
-  "cooler")
-    new_temp=$((current_temp + step))
-    ;;
-  *)
-    echo "Error: Invalid argument. Use 'warmer' or 'cooler'."
-    exit 1
-    ;;
+"inc")
+  NEW_TEMP=$((CURRENT_TEMP + STEP))
+  if [[ $NEW_TEMP -le $MAX_TEMP ]]; then
+    update_wlsunset $NEW_TEMP
+  else
+    update_wlsunset $MAX_TEMP
+  fi
+  ;;
+"dec")
+  NEW_TEMP=$((CURRENT_TEMP - STEP))
+  if [[ $NEW_TEMP -ge $MIN_TEMP ]]; then
+    update_wlsunset $NEW_TEMP
+  else
+    update_wlsunset $MIN_TEMP
+  fi
+  ;;
+*)
+  echo "Usage: $0 {inc|dec}"
+  exit 1
+  ;;
 esac
-
-# Ensure the new temperature is within a reasonable range (adjust as needed)
-if [ "$new_temp" -lt 1000 ]; then
-  new_temp=1000
-elif [ "$new_temp" -gt 20000 ]; then
-  new_temp=20000
-fi
-
-# Apply the new temperature
-gammastep -O -P $new_temp
-
-echo "Temperature adjusted to $new_temp K"
-
-exit 0
